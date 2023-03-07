@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bincom Polls App</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="container relative mx-auto p-6">
+        <!-- flex container -->
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <div class="pt-2">
+                <p class="font-bold">POLLS</p>
+            </div> 
+            <div class="hidden md:flex space-x-8">
+                <!-- Menu items -->
+                <a href="#" class="hover:text-green-300">Live Polls</a>
+                <a href="#" class="hover:text-green-300">About Us</a>
+                <a href="#" class="hover:text-green-300">Careers</a>
+                <a href="#" class="hover:text-green-300">Community</a>
+            </div>
+            
+            <a href="#" class="hidden md:block text-white bg-green-500 rounded-full hover:bg-green-300 baseline p-3 pt-2 px-6">Get Started</a>
+        </div>
+    </nav>
+</body>
+</html>

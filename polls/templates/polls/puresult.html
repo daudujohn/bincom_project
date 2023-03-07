@@ -1,0 +1,42 @@
+{% extends 'polls/index.html' %}
+{% block content %}
+<div
+class="block max-w-sm  mx-auto pt-10 mt-20 rounded-lg bg-white p-6 shadow-lg dark:bg-neutral-700">
+<form action="" method="POST">
+  {% csrf_token %}
+  <div class="relative mb-12" data-te-input-wrapper-init>
+    <input
+    type = "text"
+    class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+    id="polling_unit_name" name="polling_unit_name"
+    placeholder="Enter Polling Unit name" />
+    <label
+      for="polling_unit_name"
+      class="pointer-events-none mt-10 absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
+      >Enter Poll Unit Id</label
+    >
+  </div>
+  <button
+    type="submit"
+    class="rounded bg-primary mx-auto px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+    data-te-ripple-init
+    data-te-ripple-color="light">
+    Get Results
+  </button>
+</form>
+</div>
+
+<div>
+  <h1 class="max-w-md text-4xl pt-10 mx-auto px-4 text-center md:text-left">Polling Unit Result</h1>
+
+	<ol>
+	{% for index, row in pu_res_df.iterrows %}
+		<li>
+			<p><strong>Polling Unit Name: </strong>{{ row.Polling_Unit_Name }}</p>
+      <p><strong>Party: </strong>{{ row.Party }}</p>
+      <p><strong>Party Score: </strong>{{ row.Party_score }}</p>
+		</li>
+	{% endfor %}
+	</ol>
+</div>
+{% endblock content %}
